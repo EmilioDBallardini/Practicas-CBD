@@ -1,0 +1,112 @@
+program ejercicio2;
+
+
+Type
+
+  tVehiculo= Record
+		codigoVehiculo:integer;
+		patente: String[255];
+		nro_motor:String[255];
+		cantidadPuertas: integer;
+		precio:real;
+		descripcion:String[255];
+	end;
+
+	tArchivo = File of tVehiculo;
+
+
+ 	procedure leerRegistro(var reg:tVehiculo);
+  begin
+    with reg do
+    begin
+      Write('Código vehículo: '); ReadLn(codigoVehiculo);
+      Write('Patente: '); ReadLn(patente);
+      Write('Numero de motor: '); ReadLn(nro_motor);
+      Write('Cantidad de puertas: '); ReadLn(cantidadPuertas);
+      Write('Precio: '); ReadLn(precio);
+      Write('Descripción: '); ReadLn(descripcion);
+    end;
+  end;
+
+  Procedure agregar (var arch: tArchivo; vehiculo: tVehiculo);
+  var
+    o, cl: Byte;
+    reg, reg_b, aux: tVehiculo;
+    sLibre: String[255];
+    nLibre, cod: integer;
+
+	begin
+    Assign(arch, 'patentes.bat');
+  	Reset(arch);
+    Read(arch, reg);
+    Val(reg.descripcion, nLibre, cod);
+    if (nLibre = -1) then
+    begin
+      Seek(arch, FileSize(arch));
+    end
+    else
+    begin
+      Seek(arch, nLibre);
+      Read(arch, reg);
+			Seek(arch, 0);
+      Write(arch, reg);
+      Seek(arch, nLibre);
+    end;
+    WriteLn();
+    Write('Ingrese la información del vehículo: ');
+    leerRegistro(aux);
+    Write(arch, aux);
+    Close(arch);
+	End;
+
+  Procedure eliminar (var arch: tArchivo; codigoVehiculo: integer);
+  var
+    o, cl: Byte;
+    reg, reg_b, aux: tVehiculo;
+    sLibre: tArchivo;
+    nLibre, cod: integer;
+    pate_aux:String[255];
+
+  Begin
+    Assign(arch, 'patentes.bat');
+  	Reset(arch);
+
+
+    Read(arch, reg);
+   	Read(arch, reg_b);
+    While not((codigoVehiculo = reg_b.codigoVehiculo) or (eof(arch))) do
+			Read(arch, reg_b);
+    if ( reg_b.codigoVehiculo = codigoVehiculo ) then
+    begin
+      nLibre := FilePos(arch) - 1;
+      Seek(arch, nLibre);
+      Write(arch, reg);
+      Str(nLibre, reg_b.patente);
+      Seek(arch, 0);
+      Write(arch, reg_b);
+    end
+    else
+    begin
+      WriteLn();
+      WriteLn('No exite ese vehículo');
+			Write('Oprima Enter para continuar...'); ReadLn();
+    end;
+
+
+    Close(arch);
+
+
+  End;
+
+var
+  o, cl: Byte;
+  reg, reg_b: tVehiculo;  //codigo y codigo a buscar
+  sLibre: String[255];  //string con el proximo registro libre
+  nLibre, cod: Word;
+  archivo: tArchivo;
+
+begin
+
+
+end.
+

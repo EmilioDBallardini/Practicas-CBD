@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="44"/>
+        <CursorPos X="47" Y="67"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="9" HistoryIndex="8">
+      <Position1>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="27" Column="22"/>
+      </Position1>
+      <Position2>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="30" Column="13"/>
+      </Position2>
+      <Position3>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="33" Column="15" TopLine="4"/>
+      </Position3>
+      <Position4>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="37" TopLine="4"/>
+      </Position4>
+      <Position5>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="39" Column="16" TopLine="7"/>
+      </Position5>
+      <Position6>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="59" Column="3" TopLine="28"/>
+      </Position6>
+      <Position7>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="48" Column="38" TopLine="28"/>
+      </Position7>
+      <Position8>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="76" Column="5" TopLine="41"/>
+      </Position8>
+      <Position9>
+        <Filename Value="llenar_archivo_binario.lpr"/>
+        <Caret Line="69" Column="11" TopLine="44"/>
+      </Position9>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
