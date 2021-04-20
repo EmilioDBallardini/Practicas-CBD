@@ -1,0 +1,13 @@
+Estado inicial
+Nodo 2: 5, i, 0(38)1(60)3(87)4(187)5(300)6
+Nodo 0: 2, h, (12)(31)
+Nodo 1: 2, h, (50)(53)
+Nodo 3: 2, h, (65)(77)
+Nodo 4: 5, h, (96)(99)(103)(115)(120)
+Nodo 5: 2, h, (224)(249)
+Nodo 6: 3, h, (329)(345)(486)
+
+-65
+L2 L3 (underflow)
+Como el hermano adyacente izquierdo está al mínimo, no se puede re-distribuir
+Por lo tanto se concatena con ese mismo hermano???

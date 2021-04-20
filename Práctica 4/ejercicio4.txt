@@ -1,0 +1,100 @@
+Estado inicial 
+Nodo 2: 5, i, 0(60)1(90)3(107)4(287)5(400)6
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (53)(66)
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 5, h, (403)(404)(506)(518)(620)
+
++425 overflow en el nodo 6 que se propaga al nodo raíz y se genera overflow
+L2 L6 E6 E7 E2 E8 E9
+Nodo 2: 5, i, 0(60)1(90)3(107)4(287)5(400)6
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (53)(66)
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 6, h, (403)(404)(425)(506)(518)(620) overflow
+
+Nodo 2: 6, i, 0(60)1(90)3(107)4(287)5(400)6(506)7 overflow
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (53)(66)
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
+
+Nodo 9: 1, i, 2(287)8
+Nodo 2: 3, i, 0(60)1(90)3(107)4
+Nodo 8: 2, i, 5(400)6(506)7
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (53)(66)
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
+
+-60 
+(como se encuentra en un nodo raíz, hay que intercambiar la clave)
+(elijo el menor de su hijo der)
+(esto produce un underflow en esa hoja y como están todas al mínimo se concatena con su hermano, hacia la izq)
+L9 L2  L1  
+Nodo 9: 1, i, 2(287)8
+Nodo 2: 3, i, 0(60)1(90)3(107)4
+Nodo 8: 2, i, 5(400)6(506)7
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (53)(66)
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
+
+Nodo 9: 1, i, 2(287)8
+Nodo 2: 3, i, 0(53)1(90)3(107)4
+Nodo 8: 2, i, 5(400)6(506)7
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (60)(66)
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
+
+Nodo 9: 1, i, 2(287)8
+Nodo 2: 3, i, 0(53)1(90)3(107)4
+Nodo 8: 2, i, 5(400)6(506)7
+Nodo 0: 2, h, (12)(22)
+Nodo 1: 2, h, (66) --> underflow
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
+
+Nodo 9: 1, i, 2(287)8
+Nodo 2: 3, i, 1(90)3(107)4
+Nodo 8: 2, i, 5(400)6(506)7
+Nodo 0: 2, h, (12)(22)(53)(60)
+Nodo 1: 2, h, () --> nodo libre
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
+
+-22
+L9 L2 L1 E1
+Nodo 9: 1, i, 2(287)8
+Nodo 2: 3, i, 1(90)3(107)4
+Nodo 8: 2, i, 5(400)6(506)7
+Nodo 0: 2, h, (12)(53)(60)
+Nodo 1: 2, h, () --> nodo libre
+Nodo 3: 2, h, (94)(95)
+Nodo 4: 3, h, (116)(129)(280)
+Nodo 5: 2, h, (328)(358)
+Nodo 6: 3, h, (403)(404)(425) 
+Nodo 7: 2, h, (518)(620)
