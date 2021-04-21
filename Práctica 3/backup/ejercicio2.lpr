@@ -31,16 +31,15 @@ Type
   Procedure agregar (var arch: tArchivo; vehiculo: tVehiculo);
   var
     o, cl: Byte;
-    reg, reg_b, aux: tVehiculo;
-    sLibre: String[255];
+    reg: tVehiculo;
     nLibre, cod: integer;
 
 	begin
-    Assign(arch, 'patentes.bat');
+
   	Reset(arch);
     Read(arch, reg);
     Val(reg.descripcion, nLibre, cod);
-    if (nLibre = -1) then
+    if (nLibre = 0) then
     begin
       Seek(arch, FileSize(arch));
     end
@@ -52,10 +51,7 @@ Type
       Write(arch, reg);
       Seek(arch, nLibre);
     end;
-    WriteLn();
-    Write('Ingrese la información del vehículo: ');
-    leerRegistro(aux);
-    Write(arch, aux);
+    Write(arch, vehiculo);
     Close(arch);
 	End;
 
@@ -68,20 +64,17 @@ Type
     pate_aux:String[255];
 
   Begin
-    Assign(arch, 'patentes.bat');
+
   	Reset(arch);
-
-
     Read(arch, reg);
-   	Read(arch, reg_b);
     While not((codigoVehiculo = reg_b.codigoVehiculo) or (eof(arch))) do
 			Read(arch, reg_b);
     if ( reg_b.codigoVehiculo = codigoVehiculo ) then
     begin
-      nLibre = FilePos(arch) - 1;
+      nLibre := FilePos(arch) - 1;
       Seek(arch, nLibre);
       Write(arch, reg);
-      Str(nLibre, reg_b.patente);
+      Str(nLibre, reg_b.descripcion);
       Seek(arch, 0);
       Write(arch, reg_b);
     end
@@ -91,11 +84,7 @@ Type
       WriteLn('No exite ese vehículo');
 			Write('Oprima Enter para continuar...'); ReadLn();
     end;
-
-
     Close(arch);
-
-
   End;
 
 var
@@ -106,7 +95,7 @@ var
   archivo: tArchivo;
 
 begin
-
+      Assign(arch, 'patentes.bat');
 
 end.
 

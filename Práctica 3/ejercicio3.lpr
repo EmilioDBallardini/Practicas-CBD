@@ -22,16 +22,13 @@ Type
     end;
   end;
 
-  procedure generarBinario(var texto:Text; ruta:String);
+  procedure generarBinario(var texto:Text);
   var
     reg:registro;
     binario: archivo_reg;
   begin
-    Assign(texto, ruta);
-    Assign(binario, 'stocks.bat');
     Reset(texto);
     Rewrite(binario);
-
 
     while not(eof(texto))do
     begin
@@ -48,12 +45,11 @@ Type
 
   end;
 
-	procedure colocarMarca(var binario:archivo_reg; ruta:string);
+	procedure colocarMarca(var binario:archivo_reg);
   var
     reg:registro;
     cod:integer;
   begin
-    Assign(binario, ruta);
     Reset(binario);
 
     Write('Ingrese el código a borrar: ');ReadLn(cod);
@@ -76,26 +72,21 @@ Type
     Close(binario);
   end;
 
-	procedure darAltaInef(var binario:archivo_reg; ruta:String);
+	procedure darAltaInef(var binario:archivo_reg);
   var
     reg, aux:registro;
-
   begin
-    Assign(binario, ruta);
     Reset(binario);
     leerRegistro(reg);
-
-
     While not(reg.codigo = 10000)do
     begin
-
       Read(binario, aux);
       while((aux.codigo > 0) and not(eof(binario)))do
       begin
         Read(binario, aux);
       end;
 
-      if not(eof(binario))then
+      if(aux.codigo < 0)then
       begin
         Seek(binario, FilePos(binario) -1);
         Write(binario, reg);
@@ -104,27 +95,23 @@ Type
       begin
       	Write(binario, reg);
       end;
-
       leerRegistro(reg);
       Seek(binario, 0);
     end;
     Close(binario);
   end;
 
-	procedure generarListaInvertida(var binario:archivo_reg; ruta:string);
+	procedure generarListaInvertida(var binario:archivo_reg);
   var
     reg, aux:registro;
-    cod, cod_b, nLibre:integer;
+    cod, nLibre:integer;
   begin
-    Assign(binario, ruta);
     Reset(binario);
 
     Write('Ingrese el código a borrar: ');ReadLn(cod);
 		Read(binario, aux);
     while (cod <> 10000) do
     begin
-
-      Read(binario, reg);
       While not(( reg.codigo = cod) or (eof(binario)))do
       	Read(binario, reg);
       if (cod = reg.codigo ) then
@@ -144,25 +131,20 @@ Type
         ReadLn();
         Seek(binario, 0);
       end;
-
-
       Write('Ingrese el código a borrar: ');ReadLn(cod);
     end;
-
-
     Close(binario);
   end;
 
-	procedure darAltaLista(var binario:archivo_reg; ruta:string);
+	procedure darAltaLista(var binario:archivo_reg);
   var
     reg_libre, reg, aux:registro;
-  	nLibre, sLibre:integer;
+  	nLibre:integer;
   begin
-    Assign(binario, ruta);
     Reset(binario);
 
-    Read(binario, reg_libre);
-		leerRegistro(reg); //leo el registro dedicado
+    Read(binario, reg_libre); //leo el registro dedicado
+		leerRegistro(reg); //leo el registro a agregar
     nLibre:= reg_libre.codigo; //guardo la posición que tiene
     while not (reg.codigo = 10000) do
     begin
@@ -175,36 +157,27 @@ Type
       begin
         Seek(binario, nLibre);//busco esa posición
         Read(binario, aux); //leo el registro
-        sLibre:= FilePos(binario) - 1; //guardo la posición que tiene
         Seek(binario, 0); //vuelvo al inicio
-        reg_libre.codigo:=sLibre; //lo guardo en el registro dedicado
-        Write(binario, reg_libre); //cambio la posición del siguiente libre
-        Seek(binario, nLibre);// vuelvo a la posición libre
+        Write(binario, aux); //cambio la posición del siguiente libre
+        Seek(binario, nLibre);
       end;
       Write(binario, reg);
       WriteLn();
       leerRegistro(reg);
     end;
-
-
     Close(binario);
   end;
 
-	//dudo que sea así de sencillo pero bueno
-	procedure generarBinarioConLista(var texto:Text; ruta:string);
+	procedure generarBinarioConLista(var texto:Text);
   var
     reg:registro;
 		binario:archivo_reg;
 	begin
-  	Assign(texto, ruta);
-    Assign(binario, 'stocks.bat');
     Reset(texto);
     Rewrite(binario);
 
+    //configuro el registro dedicado
     reg.codigo:= -1;
-    reg.stock:=null;
-    reg.nombre:=null;
-    reg.descripcion:=null;
 
     Write(binario, reg);
     while not(eof(texto))do
@@ -216,11 +189,17 @@ Type
       	Write(binario, reg);
       end;
     end;
-
     Close(binario);
 		Close(texto);
   end;
 
+var
+
+  texto:Text;
+  binario: archivo_reg;
+
 begin
+    Assign(texto, 'stocks.txt');
+    Assign(binario, 'stocks.bat');
 end.
 

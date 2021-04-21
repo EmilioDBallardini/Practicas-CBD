@@ -9,14 +9,13 @@
         <Filename Value="ejercicio3.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="25"/>
-        <CursorPos X="5" Y="202"/>
-        <FoldState Value=" T3D293 piejE1e13"/>
-        <UsageCount Value="23"/>
+        <CursorPos X="42" Y="25"/>
+        <FoldState Value=" T3D291"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit0>
     </Units>
-    <JumpHistory Count="6" HistoryIndex="5">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
         <Filename Value="ejercicio3.lpr"/>
         <Caret Line="53" Column="5"/>
@@ -41,6 +40,22 @@
         <Filename Value="ejercicio3.lpr"/>
         <Caret Line="169" Column="15" TopLine="13"/>
       </Position6>
+      <Position7>
+        <Filename Value="ejercicio3.lpr"/>
+        <Caret Line="31" Column="6"/>
+      </Position7>
+      <Position8>
+        <Filename Value="ejercicio3.lpr"/>
+        <Caret Line="111" Column="9" TopLine="100"/>
+      </Position8>
+      <Position9>
+        <Filename Value="ejercicio3.lpr"/>
+        <Caret Line="84" Column="21" TopLine="67"/>
+      </Position9>
+      <Position10>
+        <Filename Value="ejercicio3.lpr"/>
+        <Caret Line="120" Column="19" TopLine="103"/>
+      </Position10>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
